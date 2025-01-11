@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Danh Sách Người Dùng</title>
+</head>
+<body>
+<h1>Danh Sách Người Dùng</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Họ và Tên</th>
+    <th>Email</th>
+    <th>Tuổi</th>
+    <th>Địa chỉ</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.email}"></td>
+    <td th:text="${user.age}"></td>
+    <td th:text="${user.address}"></td>
+  </tr>
+  </tbody>
+</table>
+<a href="/user/form">Thêm Người Dùng</a>
+</body>
+</html>

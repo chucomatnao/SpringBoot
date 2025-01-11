@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Nhập Thông Tin</title>
+</head>
+<body>
+<h1>Nhập Thông Tin Người Dùng</h1>
+<form th:action="@{/user/add}" th:object="${user}" method="post">
+    <label for="name">Họ và Tên:</label>
+    <input type="text" id="name" th:field="*{name}" required>
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" th:field="*{email}" required>
+    <br>
+
+    <label for="age">Tuổi:</label>
+    <input type="number" id="age" th:field="*{age}" required>
+    <br>
+
+    <label for="address">Địa chỉ:</label>
+    <input type="text" id="address" th:field="*{address}" required>
+    <br>
+
+    <button type="submit">Lưu</button>
+</form>
+</body>
+</html>
