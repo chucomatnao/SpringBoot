@@ -1,28 +1,147 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Form Nhập Thông Tin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập Thông Tin Người Dùng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .form-container {
+            width: 40%;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-container label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .form-container input[type="submit"]:hover {
+            opacity: 0.8;
+        }
+
+        .form-container a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px;
+            background-color: #2196F3;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .form-container a:hover {
+            opacity: 0.8;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="number"] {
+            border: 1px solid #ccc;
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .form-container input[type="text"]:focus,
+        .form-container input[type="email"]:focus,
+        .form-container input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .form-container button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .form-container button:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-<h1>Nhập Thông Tin Người Dùng</h1>
-<form th:action="@{/user/add}" th:object="${user}" method="post">
-    <label for="name">Họ và Tên:</label>
-    <input type="text" id="name" th:field="*{name}" required>
-    <br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" th:field="*{email}" required>
-    <br>
+<header>
+    <h1>Nhập Thông Tin Người Dùng</h1>
+</header>
 
-    <label for="age">Tuổi:</label>
-    <input type="number" id="age" th:field="*{age}" required>
-    <br>
+<div class="form-container">
+    <form th:action="@{/user/add}" th:object="${user}" method="post">
+        <label for="name">Họ và Tên:</label>
+        <input type="text" id="name" th:field="*{name}" required>
 
-    <label for="address">Địa chỉ:</label>
-    <input type="text" id="address" th:field="*{address}" required>
-    <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required>
 
-    <button type="submit">Lưu</button>
-</form>
+        <label for="age">Tuổi:</label>
+        <input type="number" id="age" th:field="*{age}" required>
+
+        <label for="address">Địa chỉ:</label>
+        <input type="text" id="address" th:field="*{address}" required>
+
+        <div>
+            <input type="submit" value="Lưu">
+            <a href="/user/list"> danh sách người dùng</a>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>

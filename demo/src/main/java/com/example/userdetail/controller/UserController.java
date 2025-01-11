@@ -40,4 +40,31 @@ public class UserController {
         return "userlist"; // Trả về trang danh sách người dùng
     }
 
+    @GetMapping("/edit/{id}")
+    public String editUserForm(@PathVariable int id, Model model) {
+        User user = userList.stream()
+                .filter(u -> u.getId() == id)
+                .findFirst()
+                .orElse(null);
+        if (user != null) {
+            model.addAttribute("user", user);
+            return "userform"; // Trả về form sửa người dùng
+        }
+        return "redirect:/user/list"; // Nếu không tìm thấy người dùng, quay lại danh sách
+    }
+
+    @PostMapping("/edit")
+    public String editUser(@ModelAttribute User user) {
+        int index = userList.indexOf(user);
+        if (index != -1) {
+            userList.set(index, user); // Cập nhật thông tin người dùng
+        }
+        return "redirect:/user/list";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteUser(@PathVariable int id) {
+        userList.removeIf(user -> user.getId() == id); // Xóa người dùng khỏi danh sách
+        return "redirect:/user/list"; // Chuyển hướng đến danh sách người dùng
+    }
 }
