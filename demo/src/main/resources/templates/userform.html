@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,111 +7,67 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7fc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
             margin: 0;
             padding: 0;
         }
-
         header {
-            background-color: #4CAF50;
+            background-color: #2196F3;
             color: white;
+            padding: 20px 0;
             text-align: center;
-            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         h1 {
             margin: 0;
         }
-
         .form-container {
-            width: 40%;
+            width: 50%;
             margin: 40px auto;
             padding: 30px;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
             border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-        .form-container label {
-            display: block;
+        label {
             font-size: 16px;
-            margin-bottom: 8px;
             color: #333;
+            margin-bottom: 5px;
+            display: block;
         }
-
-        .form-container input {
+        input[type="text"], input[type="email"], input[type="number"] {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
-            box-sizing: border-box;
         }
-
-        .form-container input[type="submit"] {
+        input[type="submit"] {
             background-color: #4CAF50;
             color: white;
             border: none;
-            cursor: pointer;
             padding: 12px;
             font-size: 16px;
             border-radius: 5px;
+            cursor: pointer;
             width: 100%;
         }
-
-        .form-container input[type="submit"]:hover {
+        input[type="submit"]:hover {
             opacity: 0.8;
         }
-
         .form-container a {
-            display: inline-block;
-            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
             padding: 12px;
             background-color: #2196F3;
             color: white;
             border-radius: 5px;
-            text-align: center;
-            width: 100%;
-            margin-top: 15px;
+            text-decoration: none;
         }
-
         .form-container a:hover {
-            opacity: 0.8;
-        }
-
-        .form-container input[type="text"],
-        .form-container input[type="email"],
-        .form-container input[type="number"] {
-            border: 1px solid #ccc;
-            font-size: 14px;
-            margin-bottom: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        .form-container input[type="text"]:focus,
-        .form-container input[type="email"]:focus,
-        .form-container input[type="number"]:focus {
-            border-color: #4CAF50;
-            outline: none;
-        }
-
-        .form-container button {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .form-container button:hover {
             opacity: 0.8;
         }
     </style>
@@ -136,11 +92,10 @@
         <label for="address">Địa chỉ:</label>
         <input type="text" id="address" th:field="*{address}" required>
 
-        <div>
-            <input type="submit" value="Lưu">
-            <a href="/user/list"> danh sách người dùng</a>
-        </div>
+        <input type="submit" value="Lưu">
     </form>
+
+    <a href="/user/list">Quay lại danh sách người dùng</a>
 </div>
 
 </body>
